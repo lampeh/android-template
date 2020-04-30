@@ -1,0 +1,40 @@
+
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-android-extensions'
+}
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion '29.0.3'
+    defaultConfig {
+        applicationId "org.openchaos.android.app"
+        minSdkVersion 26
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        resConfigs 'en'
+    }
+    buildTypes {
+        release {
+            minifyEnabled = true
+            shrinkResources = true
+        }
+        debug {
+            versionNameSuffix = '-dbg'
+        }
+    }
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlin_version}"
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.preference:preference:1.1.1'
+    implementation 'androidx.fragment:fragment:1.2.4'
+}
